@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: grasp
+Version: 1.0
+Summary: grasp suite: standard benchmark
+Home-page: http://mcl-lab.usc.edu:1313/
+Author: jiali duan
+Author-email: jialidua@usc.edu
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3

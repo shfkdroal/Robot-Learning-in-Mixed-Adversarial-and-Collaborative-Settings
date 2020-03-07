@@ -1,0 +1,19 @@
+<mujoco model="cube">
+    <option  gravity="0 0 -9.8" >
+        <flag  warmstart="enable"></flag>
+    </option>
+    <asset>
+        <!-- <texture name="texture_block" file="./textures/block_red.png" gridsize="3 4" gridlayout=".U..LFRB.D.."></texture>     -->
+        <texture name="texture_block" file="./textures/block_red.png" gridsize="3 4" gridlayout=".U..LFRB.D.."></texture>    
+        <material name="block_mat" texture="texture_block" specular="0" shininess="0.5" reflectance="0"></material>
+    </asset>
+
+  <!--quat=""-->
+    <worldbody>
+        <body name="object0" pos="0.70 0.0 0.8" quat="0.65328148 -0.27059805  0.65328148  0.27059805">
+            <joint name="object0:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.03 0.25" type="cylinder" condim="4" solimp="0.95 0.95 0.01" name="object0" material="block_mat" mass="0.01" friction="0.95 0.3 0.8" ></geom>
+            <!-- <site name="object0" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site> -->
+        </body>
+    </worldbody>
+</mujoco>

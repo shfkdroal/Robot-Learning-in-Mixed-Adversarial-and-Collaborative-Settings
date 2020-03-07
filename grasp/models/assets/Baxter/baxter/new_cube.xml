@@ -1,0 +1,14 @@
+<mujoco model="new_cube">
+  <asset>
+    <texture file="../textures/bread.png" type="2d" name="tex-bread" />
+    <material name="bread" reflectance="0.7" texrepeat="15 15" texture="tex-bread" texuniform="true"/>
+  </asset>
+  <worldbody>
+      <body name="object0" pos="0.68 0.2 0.86"  quat="0.80901699 0.         0.         0.58778525">
+        <joint name="object0:joint" type="free" damping="0.1" limited="false"></joint> 
+        <geom size="0.02 0.09 0.02" type="box" condim="4" solimp="0.95 0.95 0.01" name="object0" mass="0.01" friction="1.0 0.3 0.8" pos="0.08 0 0.02"> </geom>
+        <geom size="0.15 0.02 0.02" type="box" condim="4" solimp="0.95 0.95 0.01" name="object1" mass="0.01" friction="1.0 0.3 0.8" pos="-0.05 0 0.02"></geom>
+
+      </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,16 @@
+<mujoco model="bottle">
+  <asset>
+    <mesh file="bottle.stl" name="bottle_mesh"  scale="1.5 1.5 1.5"/>
+    <texture type="skybox" file="./textures/wooden.png" name="tex-glass"/>
+    <material name="glass" reflectance="0.5" texrepeat="5 5" texture="tex-glass" texuniform="true"/>
+  </asset>
+  <worldbody>
+    
+      <body name="object0" pos="0.70 0.0 0.82" quat=" 0.4956771 -0.4956771  0.4956771  0.4956771">
+        <joint name="object0:joint" type="free" damping="0.1" limited="false"></joint>
+        <geom name="object0" pos="0 0 0" mesh="bottle_mesh" type="mesh" solimp="0.998 0.998 0.001" solref="0.001 1" density="50" friction="0.95 0.4 0.2" material="glass" group="1" />
+        <!-- <geom pos="0 0 0" mesh="bottle_mesh" type="mesh" solimp="0.998 0.998 0.001" solref="0.001 1" density="50" friction="0.95 0.3 0.1" material="glass" group="0"/> -->
+      </body>
+
+  </worldbody>
+</mujoco>

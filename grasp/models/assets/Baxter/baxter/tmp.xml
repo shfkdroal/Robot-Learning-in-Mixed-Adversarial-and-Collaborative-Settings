@@ -1,0 +1,23 @@
+<mujoco model="round-nut">
+  <asset>
+    <texture file="../textures/metal.png" name="tex-metal" type="2d" />
+    <material name="metal" reflectance="0.7" texrepeat="1 1" texture="tex-metal" texuniform="true" />
+  </asset>
+  <worldbody>
+    
+      <body name="object0" pos="0.7250000000000001 0.0 0.81" quat="6.123233995736766e-17 0.0 0.0 -1.0">
+        <joint damping="0.1" limited="false" name="object0:joint" type="free" />
+        <geom condim="4" density="100" friction="0.95 0.3 0.1" group="1" name="object0" pos="-0.09339000000000001 0.0 0.0" rgba="1 1 1 1" size="0.02475 0.0495 0.022000000000000002" solimp="0.998 0.998 0.001" solref="0.02 1" type="box" />
+        <geom condim="4" density="100" friction="0.95 0.3 0.1" group="1" name="object1" pos="0.09339000000000001 0.0 0.0" rgba="1 1 1 1" size="0.02475 0.0495 0.022000000000000002" solimp="0.998 0.998 0.001" solref="0.02 1" type="box" />
+        <geom condim="4" density="100" friction="0.95 0.3 0.1" group="1" name="object2" pos="0.0 -0.09339000000000001 0.0" rgba="1 1 1 1" size="0.0495 0.02475 0.022000000000000002" solimp="0.998 0.998 0.001" solref="0.02 1" type="box" />
+        <geom condim="4" density="100" friction="0.95 0.3 0.1" group="1" name="object3" pos="0.0 0.09339000000000001 0.0" rgba="1 1 1 1" size="0.0495 0.02475 0.022000000000000002" solimp="0.998 0.998 0.001" solref="0.02 1" type="box" />
+        <geom axisangle="0 0 1 0.785398" condim="4" density="100" friction="0.95 0.3 0.1" group="1" name="object4" pos="-0.066 -0.066 0.0" rgba="1 1 1 1" size="0.02475 0.0495 0.022000000000000002" solimp="0.998 0.998 0.001" solref="0.02 1" type="box" />
+        <geom axisangle="0 0 1 0.785398" condim="4" density="100" friction="0.95 0.3 0.1" group="1" name="object5" pos="0.066 0.066 0.0" rgba="1 1 1 1" size="0.027500000000000004 0.0495 0.022000000000000002" solimp="0.998 0.998 0.001" solref="0.02 1" type="box" />
+        <geom axisangle="0 0 1 0.785398" condim="4" density="100" friction="0.95 0.3 0.1" group="1" name="object6" pos="0.066 -0.066 0.0" rgba="1 1 1 1" size="0.0495 0.027500000000000004 0.022000000000000002" solimp="0.998 0.998 0.001" solref="0.02 1" type="box" />
+        <geom axisangle="0 0 1 0.785398" condim="4" density="100" friction="0.95 0.3 0.1" group="1" name="object7" pos="-0.066 0.066 0.0" rgba="1 1 1 1" size="0.0495 0.02475 0.022000000000000002" solimp="0.998 0.998 0.001" solref="0.02 1" type="box" />
+        <geom condim="4" density="100" friction="0.95 0.3 0.1" group="1" name="object8" pos="-0.132 0.0 0.0" rgba="1 1 1 1" size="0.05280000000000001 0.034925000000000005 0.022000000000000002" solimp="0.998 0.998 0.001" solref="0.02 1" type="box" />
+      </body>
+  
+ 
+  </worldbody>
+</mujoco>

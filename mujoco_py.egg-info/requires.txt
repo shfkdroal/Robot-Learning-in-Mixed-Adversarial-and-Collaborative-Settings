@@ -1,0 +1,6 @@
+Cython>=0.27.2
+cffi>=1.10
+glfw>=1.4.0
+imageio>=2.1.2
+lockfile>=0.12.2
+numpy>=1.11

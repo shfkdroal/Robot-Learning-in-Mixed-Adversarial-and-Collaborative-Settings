@@ -1,0 +1,85 @@
+<mujoco>
+    <asset>
+        <texture name="texture_block" file="./textures/block.png" gridsize="3 4" gridlayout=".U..LFRB.D.."></texture>   
+        <texture name="texture_block_red" file="./textures/block_red.png" gridsize="3 4" gridlayout=".U..LFRB.D.."></texture> 
+		<material name="block_mat" texture="texture_block" specular="0" shininess="0.5" reflectance="0"></material>
+        <material name="block_mat_red" texture="texture_block_red" specular="0" shininess="0.5" reflectance="0"></material>
+	</asset>
+
+  
+    <worldbody>
+        <body name="object0" pos="0.94 0.05 1.8">
+            <joint name="object0:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object0" material="block_mat" mass="20"></geom>
+            <site name="object0" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+        <body name="object1" pos="1.04 0.05 2.8">
+            <joint name="object1:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object1" material="block_mat" mass="20"></geom>
+            <site name="object1" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+        <body name="object2" pos="0.99 -0.05 1.8">
+            <joint name="object2:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object2" material="block_mat" mass="20"></geom>
+            <site name="object2" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+        <body name="object3" pos="0.99 -0.05 1.8">
+            <joint name="object3:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object3" material="block_mat" mass="20"></geom>
+            <site name="object3" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+        <body name="object4" pos="1.04 0.0 1.8">
+            <joint name="object4:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object4" material="block_mat" mass="20"></geom>
+            <site name="object4" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+        <!-- <body name="object5" pos="0.94 0.0 1.8">
+            <joint name="object5:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object5" material="block_mat" mass="20"></geom>
+            <site name="object5" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+        <body name="object6" pos="-0.94 0.0 2.8">
+            <joint name="object6:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object6" material="block_mat" mass="20"></geom>
+            <site name="object6" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+        <body name="object7" pos="0.90 0.0 2.8">
+            <joint name="object7:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object7" material="block_mat" mass="20"></geom>
+            <site name="object7" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+       
+        <body name="object9" pos="0.94 0.0 2.8">
+            <joint name="object9:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object9" material="block_mat" mass="20"></geom>
+            <site name="object9" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+        <body name="object10" pos="0.99 0.0 2.8">
+            <joint name="object10:joint" type="free" damping="0.1" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025" type="box" solimp="0.01 0.01 0.01" condim="3" name="object10" material="block_mat" mass="20"></geom>
+            <site name="object10" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+         <body name="object8" pos="0.99 0.0 3.8">
+            <joint name="object8:joint" type="free" damping="0.0" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025"  solimp="0.01 0.01 0.0001"  type="box" condim="6" name="object8" material="block_mat" mass="20"></geom>
+            <site name="object8" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body> -->
+
+        <body name="object11" pos="0.89 0.00 3.8">
+            <joint name="object11:joint" type="free" damping="0.0" limited="false"></joint> 
+            <geom size="0.025 0.025 0.025"  solimp="0.2 0.01 0.0001"  condim="6" type="box" name="object11" material="block_mat_red" mass="20"></geom>
+            <site name="object11" pos="0 0 0" size="0.02 0.02 0.02" rgba="0.9 0.2 0 1" type="sphere"></site>
+        </body>
+
+    </worldbody>
+</mujoco>

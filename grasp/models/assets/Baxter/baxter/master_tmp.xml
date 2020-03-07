@@ -1,0 +1,24 @@
+<mujoco>
+	<compiler angle="radian" coordinate="local" />
+	<option gravity="0 0 0" integrator="Euler" iterations="500" solver="CG" timestep="0.001" tolerance="1e-10">
+		<flag warmstart="enable" />
+	</option>
+	<asset>
+		<texture builtin="gradient" height="32" rgb1="0.44 0.85 0.56" rgb2="0.46 0.87 0.58" type="skybox" width="32" />
+	</asset>
+
+	<include file="cube.xml" />
+	<include file="ground.xml" />
+	<include file="table.xml" />
+	<include file="baxter_only.xml" />
+	
+	
+	
+
+	<worldbody>
+		<light ambient="0.2 0.2 0.2" castshadow="true" diffuse="0.8 0.8 0.8" dir="0 0 -1" directional="true" name="light0" pos="0 0 4" specular="0.3 0.3 0.3" />
+		
+		<camera fovy="90" name="top_camera_rgb" pos="0.8 0 1.666" quat="1.0 0 0 0" />
+	</worldbody>
+
+</mujoco>

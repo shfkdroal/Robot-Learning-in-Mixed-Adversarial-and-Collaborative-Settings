@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+	<compiler angle="radian" coordinate="local"></compiler>
+	<option  timestep="0.001" integrator="Euler" gravity="0 0 -9.8" iterations="500" solver="CG" tolerance="1e-10">
+		<flag  warmstart="enable"></flag>
+		
+	</option>
+	<asset>
+		<texture type="skybox" builtin="gradient" rgb1="0.44 0.85 0.56" rgb2="0.46 0.87 0.58" width="32" height="32"></texture>
+	</asset>
+
+	<!--<include file="cube.xml"></include>-->
+	<include file="ground.xml"></include>
+	<include file="baxter_only.xml"></include>
+	<include file="table.xml"></include>
+	<!-- <include file="bowl.xml"></include> -->
+	<include file="dusen_kupler.xml"></include>
+	<!-- <include file="dusen_yumurtalar.xml"></include> -->
+	
+	<worldbody>
+		<light directional="true" ambient="0.2 0.2 0.2" diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" castshadow="true" pos="0 0 4" dir="0 0 -1" name="light0"></light>
+	</worldbody>
+</mujoco>

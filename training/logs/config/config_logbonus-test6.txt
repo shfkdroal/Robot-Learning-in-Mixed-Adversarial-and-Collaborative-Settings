@@ -1,0 +1,52 @@
+User name: Jiali
+Begin time: 2020-02-20 04:40:19
+
+
+Config params: 
+use_render: True
+log_name: bonus-test6
+use_new_model: False
+use_new_name: 
+use_pro_new: False
+use_pro_name: bonus-train-18
+to_train: False
+adv_init: False
+is_human: True
+train_pro: False
+random_perturb: False
+object_xml: all.xml
+user_name: Jiali
+seed: 48
+test_user: False
+
+
+
+Other params: 
+alpha: 0.2
+early stop num : 45
+num samples: 128
+adv batch update: 2
+pro batch update: 4
+write log update: 5
+random init: True
+seed: 48
+
+
+
+Force config: 
+0.0 0.0 0.0 0.0 0.0 0.0
+-3.5 0.0 0.0 0.0 0.0 0.0
+0.0 -3.5 0.0 0.0 0.0 0.0
+3.5 0.0 0.0 0.0 0.0 0.0
+0.0 3.5 0.0 0.0 0.0 0.0
+0.0 0.0 3.5 0.0 0.0 0.0
+0.0 0.0 -0.3 0.0 0.0 0.0
+
+0:nothing
+1:left
+2:outward
+3:right
+4:inside
+5:up
+6:down
+

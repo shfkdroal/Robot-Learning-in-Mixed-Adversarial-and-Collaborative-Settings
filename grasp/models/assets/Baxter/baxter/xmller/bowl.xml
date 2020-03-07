@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+
+    <asset>
+        
+        <mesh name="KASE" file="box/Box_mini_100.stl"/>
+
+        <mesh name="yan1mesh" file="kutu/yan1.stl"/>
+        <mesh name="yan2mesh" file="kutu/yan2.stl"/>
+        <mesh name="yan3mesh" file="kutu/yan3.stl"/>
+        <mesh name="yan4mesh" file="kutu/yan4.stl"/>
+        <mesh name="tabanmesh" file="kutu/taban11.stl"/>
+   </asset>
+
+	<worldbody>
+		<body name="kase" pos="0.99 0.0 0.77">
+            <inertial pos="0 0 0" quat="0.659267 -0.259505 -0.260945 0.655692" mass="60.864" diaginertia="6.0869 5.81635 4.20915" />
+            <!--
+            <geom  class="viz" type="mesh" mesh="KASE"/>            
+            <geom  type="mesh" mesh="KASE"/>          
+            -->
+
+
+            
+            
+                <!--  Collision geoms -->
+                <!-- <geom pos = "0.0 0.0 0.03" solimp="0.01 0.010 0.0001" condim="3" margin="0.01" type="mesh" mesh="tabanmesh"/> -->
+                <geom pos = "-0.02 0.0 0.0" solimp="0.01 0.010 0.01" margin="0.01" type="mesh" mesh="yan1mesh"/>
+                <geom pos = "0.0 0.02 0.0" solimp="0.01 0.010 0.01" margin="0.01" type="mesh" mesh="yan2mesh"/>
+                <geom pos = "0.02 0.0 0.0" solimp="0.01 0.010 0.01" margin="0.01" type="mesh" mesh="yan3mesh"/>
+                <geom pos = "0.0 -0.02 0.0" solimp="0.01 0.010 0.01" margin="0.01" type="mesh" mesh="yan4mesh"/>
+
+                <!-- Visualization geoms -->
+                
+
+            <!-- <body name="taban" pos = "0.0 0.0 0.03">
+            </body>
+            <body name="yan1" pos = "-0.01 0.0 0.0">
+            </body>
+            <body name="yan2" pos = "0.0 0.01 0.0">
+            </body>
+            <body name="yan3" pos = "0.01 0.0 0.0">
+            </body>
+            <body name="yan4" pos = "0.0 -0.01 0.0">
+            </body> -->
+            
+
+            <!-- <joint name="deleteme" type="free" damping="0.1" limited="false"></joint> -->
+            <!-- <geom rgba="0.2 0.2 0.2 1" type="mesh" mesh="pedestal_link_collision"/> -->
+            <!-- <geom pos="-.04 0 -.8" rgba="0.2 0.2 0.2 1" type="mesh" size=".46 .425 .16"/> -->
+            <!-- <geom pos="0 0 -.35" rgba="0.2 0.2 0.2 1" type="capsule" size=".165 .25"/> -->
+        </body>
+	</worldbody>
+</mujoco>
+
+

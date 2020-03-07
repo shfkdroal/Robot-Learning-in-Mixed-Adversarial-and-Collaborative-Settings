@@ -1,0 +1,20 @@
+<mujoco model="bread">
+  <asset>
+    <mesh file="meshes/bread.stl" name="bread_mesh" scale="3 3 3"/>
+    <texture file="../textures/bread.png" type="2d" name="tex-bread" />
+    <material name="bread" reflectance="0.7" texrepeat="15 15" texture="tex-bread" texuniform="true"/>
+  </asset>
+  <worldbody>
+      <body name="object0" pos="0.73 0.05 0.86">
+        <joint name="object0:joint" type="free" damping="0.1" limited="false"></joint> 
+        <geom name="object0"  mesh="bread_mesh" type="mesh" solimp="0.998 0.998 0.001" solref="0.001 1" mass="0.01" friction="1 0.005 0.0001"  material="bread" group="1" condim="4"/>
+      </body>
+      <!-- <body name="visual">
+        <geom pos="0 0 0" mesh="bread_mesh" type="mesh" material="bread"  conaffinity="0" contype="0"  group="0" mass="0.0001"/>
+        <geom pos="0 0 0" mesh="bread_mesh" type="mesh" material="bread"  conaffinity="0" contype="0"  group="1" mass="0.0001"/>
+      </body>
+      <site rgba="0 0 0 0" size="0.005" pos="0 0 -0.045" name="bottom_site"/>
+      <site rgba="0 0 0 0" size="0.005" pos="0 0 0.03" name="top_site"/>
+      <site rgba="0 0 0 0" size="0.005" pos="0.03 0.03 0" name="horizontal_radius_site"/> -->
+  </worldbody>
+</mujoco>

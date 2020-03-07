@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+	<asset>
+		<material name="table_mat" specular="0" shininess="0" reflectance="0.5" rgba="0.4 0.8 0.4 1"></material>
+	</asset>
+
+
+	<worldbody>
+		<body pos="0.80 0.0 0.76" name="table0">
+			<geom size="0.45 0.7 0.01" solimp="0.0 0.55 0.001" solref="0.002 1" condim="3" margin="0" type="box" mass="2000" material="table_mat"></geom>
+		</body>
+	</worldbody>
+</mujoco>

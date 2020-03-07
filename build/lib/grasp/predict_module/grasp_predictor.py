@@ -1,0 +1,130 @@
+#!/usr/bin/env python
+
+import numpy as np
+import cv2
+import copy
+from sys import stdout
+import random
+
+# Given image, returns image point and theta to grasp
+class Predictors:
+    def __init__(self, I, learner=None):
+        self.I = I
+        self.I_h, self.I_w, self.I_c = self.I.shape
+        self.learner = learner
+        random.seed(48)
+        # np.random.seed(48)
+
+    def sigmoid_array(self, x):
+        return 1 / (1 + np.exp(-x))
+    def to_prob_map(self, fc8_vals):
+        sig_scale = 1
+        no_keep = 20
+        fc8_sig = self.sigmoid_array(sig_scale*fc8_vals)
+        r = np.sort(fc8_sig, axis = None)
+        r_no_keep = r[-no_keep]
+        fc8_sig[fc8_sig<r_no_keep] = 0.0
+        fc8_prob_map = fc8_sig/fc8_sig.sum()
+        return fc8_prob_map
+    def sample_from_map(self, prob_map):
+        prob_map_contig = np.ravel(prob_map)
+        arg_map_contig = np.array(range(prob_map_contig.size))
+        smp = np.random.choice(arg_map_contig, p=prob_map_contig)
+        return np.unravel_index(smp,prob_map.shape)
+    def random_grasp(self, num_angle=18):
+        h_g = np.random.randint(self.I_h)
+        w_g = np.random.randint(self.I_w)
+        t_g = np.random.randint(num_angle)
+        return h_g, w_g, t_g
+    def center_grasp(self, num_angle=18):
+        h_g = np.int(self.I_h/2)
+        w_g = np.int(self.I_w/2)
+        t_g = np.int(num_angle/2)
+        return h_g, w_g, t_g
+    def graspNet_grasp(self, num_angle=18, patch_size=300, num_samples=128):
+        random.seed(48)
+        self.patch_size = patch_size
+        half_patch_size = np.int(patch_size/2) + 1
+        h_range = self.I_h - patch_size -2
+        w_range = self.I_w - patch_size -2
+
+        print("Patch size: ", self.patch_size)
+        print("I_h: ", self.I_h)
+        print("I_w: ", self.I_w)
+        print("h_range: ", h_range)
+        print("w_range: ", w_range)
+        print("half_patch_size: ", half_patch_size)
+        print("max patch hs coord: ", h_range - 1 + half_patch_size)
+
+        #Initialize random patch points
+        patch_hs = np.random.randint(h_range, size=num_samples) + half_patch_size
+        patch_ws = np.random.randint(w_range, size=num_samples) + half_patch_size
+
+        patch_Is = np.zeros((num_samples, patch_size, patch_size, self.I_c))
+        patch_Is_resized = np.zeros((num_samples, self.learner.IMAGE_SIZE, self.learner.IMAGE_SIZE, self.I_c))
+        for looper in range(num_samples):
+            isWhiteFlag = 1
+            while isWhiteFlag==1:
+                patch_hs[looper] = np.random.randint(h_range) + half_patch_size
+                patch_ws[looper] = np.random.randint(w_range) + half_patch_size
+                patch_Is[looper] = self.I[patch_hs[looper]-half_patch_size:patch_hs[looper]-half_patch_size+patch_size, patch_ws[looper]-half_patch_size:patch_ws[looper]-half_patch_size+patch_size]
+                # Make sure that the input has a minimal amount of standard deviation from mean. If
+                # not resample
+                if patch_Is[looper].std() > 15:
+                    isWhiteFlag = 0
+                else:
+                    isWhiteFlag = 1
+            patch_Is_resized[looper] = cv2.resize(patch_Is[looper], (self.learner.IMAGE_SIZE,self.learner.IMAGE_SIZE), interpolation=cv2.INTER_CUBIC)
+        #subtract mean
+        patch_Is_resized = patch_Is_resized - 111
+        # inference, fc8
+        self.pred, self.fc8_norm_vals= self.learner.test_one_batch(patch_Is_resized)
+
+        #print("self.fc8_norm_vals[0,:]: ", self.fc8_norm_vals[0, :])
+        #print("np.argmax(self.fc8_norm_vals, axis=1): ", np.argmax(self.fc8_norm_vals, axis=1))
+        #print("self.pred: ", self.pred)
+
+        self.t_indice = np.argmax(self.fc8_norm_vals, axis=1)
+        self.r_angle_table_patches = np.zeros([128], dtype=object)
+        for i in range(128):
+            t = self.t_indice[i]
+            each_grasp_angle = t * (np.pi / 18) - np.pi / 2
+            self.r_angle_table_patches[i] = (float(self.pred[i]), each_grasp_angle)
+        #print("self.r_angle_table_patches: ", self.r_angle_table_patches)
+        #print("self.r_angle_table_patches shape: ", self.r_angle_table_patches.shape)
+
+        # Normalizing angle uncertainity: same as self.fc8_norm_vals calculated above
+        # wf = [0.25, 0.5, 0.25]
+        # self.fc8_norm_vals = copy.deepcopy(self.fc8_vals)
+        # for looper in range(num_samples):
+        #     for norm_looper in range(num_angle):
+        #         self.fc8_norm_vals[looper,norm_looper] = (wf[1]*self.fc8_norm_vals[looper,norm_looper] +
+        #                 wf[0]*self.fc8_norm_vals[looper,(norm_looper-1)%num_angle] +
+        #                 wf[2]*self.fc8_norm_vals[looper,(norm_looper+1)%num_angle])
+
+        
+        # print('fc8_vals: ', self.fc8_vals)
+        # print('fc8_norm_vals2: ', self.fc8_norm_vals2.shape)
+        # print('fc8_norm_vals2: {}'.format(self.fc8_norm_vals2))
+        # print('fc8_norm_vals: {}'.format(self.fc8_norm_vals))
+        # assert(self.fc8_norm_vals2 == self.fc8_norm_vals)
+
+        # Normalize to probability distribution
+        # self.fc8_prob_vals = self.to_prob_map(self.fc8_norm_vals)
+        # Sample from probability distribution
+        # self.patch_id, self.theta_id = self.sample_from_map(self.fc8_prob_vals)
+        #self.patch_id, self.theta_id = np.unravel_index(self.fc8_prob_vals.argmax(), self.fc8_prob_vals.shape)
+        self.patch_hs = patch_hs
+        self.patch_ws = patch_ws
+        # self.best_patch = patch_Is[self.patch_id]
+        # self.best_patch_h = patch_hs[self.patch_id]
+        # self.best_patch_w = patch_ws[self.patch_id]
+        # self.best_patch_resized = patch_Is_resized[self.patch_id]
+        self.patch_Is_resized = patch_Is_resized
+        self.patch_Is = patch_Is
+
+        max_coord = h_range - 1 + half_patch_size
+        min_coord = max_coord - h_range + 1
+        self.R_table_spec = [h_range, min_coord] #np.zeros([h_range, w_range])
+        #print("R table: ", self.max_range_table.shape)
+        # return self.best_patch_h, self.best_patch_w, self.theta_id
