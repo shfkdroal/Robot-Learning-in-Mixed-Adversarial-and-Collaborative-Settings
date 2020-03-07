@@ -1,14 +1,20 @@
-# Grasping IROS
+# Robot Learning in Mixed Adversarial and Collaborative Settings IROS
 
-![png](gui.png)
+![jpg](1.jpg)
+![jpg](1_1_resuzed.jpg)
+![jpg](1_model_approx.jpg)
 
-This project is based on [self-brewed-mujoco-py](https://github.com/davidsonic/self_brewed_mujoco_py) maintained by Jiali Duan and Qian Wang, with the following new features added:
+![jpg](2.jpg)
+![jpg](2_1_resuzed.jpg)
+![jpg](2_model_approx.jpg)
 
-0. **Rewrite Cython rendring pipeline for unified force perturbation in python bindings**
-1. **Integrating Inverse Kinmatic Control**
-2. **New camera added for capturing grasping images**
-3. **Continuous perturbation remapped to discrete circular directions**
-4. **New robotic assets included**
+![jpg](new_cube.xml_predict_2_1Lifted.jpg)
+![jpg](new_cube.xml_predict_2_2Perturbed.jpg)
+
+This project is based on [self-brewed-mujoco-py](https://github.com/davidsonic/self_brewed_mujoco_py) maintained by Seung Hee Yoon, with the following new features added:
+
+1. **Continuous perturbation remapped to discrete circular directions**
+2. **New robotic assets included**
 
 
 
