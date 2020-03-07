@@ -164,7 +164,7 @@ for i in range(1000000):
         obs = env.reset()
     if env.stop_training:
         break
-    if ex_info['steps']==total_round:
+    if ex_info['steps']==total_round and (not training_R_table_ground_truth):
         print('training finished!')
         robust_rate, success_rate = plot_fig(info, ex_info, 0, False)
         robust_rate_base += robust_rate
