@@ -1,11 +1,11 @@
 # Robot Learning in Mixed Adversarial and Collaborative Settings IROS
 
 ![jpg](1.jpg)
-![jpg](1_1_resuzed.jpg)
+![jpg](1_1_resized.jpg)
 ![jpg](1_model_approx.jpg)
 
 ![jpg](2.jpg)
-![jpg](2_1_resuzed.jpg)
+![jpg](2_1_resized.jpg)
 ![jpg](2_model_approx.jpg)
 
 ![jpg](new_cube.xml_predict_2_1Lifted.jpg)
