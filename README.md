@@ -9,8 +9,8 @@
 ![jpg](2_model_approx.jpg)
 
 <div>
-<img src="new_cube.xml_predict_2_1Lifted.jpg" width="20%">
-<img src="new_cube.xml_predict_2_2Perturbed.jpg" width="20%">
+<img src="new_cube.xml_predict_2_1Lifted.jpg" width="40%">
+<img src="new_cube.xml_predict_2_2Perturbed.jpg" width="40%">
 </div>
   
 This project is based on [self-brewed-mujoco-py](https://github.com/davidsonic/self_brewed_mujoco_py) maintained by Seung Hee Yoon, with the following new features added:
