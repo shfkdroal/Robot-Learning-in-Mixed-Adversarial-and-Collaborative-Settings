@@ -1,16 +1,10 @@
 # Robot Learning in Mixed Adversarial and Collaborative Settings IROS
 
-![jpg](1.jpg)
-![jpg](1_1_resized.jpg)
-![jpg](1_model_approx.jpg)
-
-![jpg](2.jpg)
-![jpg](2_1_resized.jpg)
-![jpg](2_model_approx.jpg)
-
-![jpg](new_cube.xml_predict_2_1Lifted.jpg)
-![jpg](new_cube.xml_predict_2_2Perturbed.jpg)
-
+<div>
+<img src="new_cube.xml_predict_2_1Lifted.jpg" width="45%">
+<img src="new_cube.xml_predict_2_2Perturbed.jpg" width="45%">
+</div>
+  
 This project is based on [self-brewed-mujoco-py](https://github.com/davidsonic/self_brewed_mujoco_py) maintained by Seung Hee Yoon, with the following new features added:
 
 1. **Continuous perturbation remapped to discrete circular directions**
