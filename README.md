@@ -1,8 +1,10 @@
 # Robot Learning in Mixed Adversarial and Collaborative Settings IROS
 
 <div>
-<img src="new_cube.xml_predict_2_1Lifted.jpg" width="45%">
-<img src="new_cube.xml_predict_2_2Perturbed.jpg" width="45%">
+<img src="new_cube.xml_predict_9_1Lifted.jpg" width="25%">
+<img src="new_cube.xml_predict_9_2Perturbed.jpg" width="25%">
+  <img src="new_cube.xml_predict_15_1Lifted.jpg" width="25%">
+<img src="new_cube.xml_predict_15_2Perturbed.jpg" width="25%">
 </div>
   
 This project is based on [self-brewed-mujoco-py](https://github.com/davidsonic/self_brewed_mujoco_py) maintained by Seung Hee Yoon, with the following new features added:
