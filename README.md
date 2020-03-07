@@ -11,14 +11,14 @@ This project is based on [public grasp IROS](https://github.com/davidsonic/grasp
 
 1. **Gneralized force classifier based on the top camera images**
 2. **Robot learning framework with the classifier**
-2. **Functionality to Capture the ground truth of robustness and sampled robustness**
+2. **Functionality to Capture the ground truth of robustness**
 
 
 
 ## Usage Examples
 
 A number of examples available under examples folder:
-- Press `ctrl/shift + mouse` to apply force, will be rendered simultaneously
+- Ground map of robustness: One can collect ground truth (numby matrix) of robustness by setting paramerter 'training_R_table_ground_truth' in training/train_init_ik.py true.  
 - [`inverse_kinmatics.py`](./examples/inverse_kinmatics.py): generates an qpos vector, which can be copied to sim.data.ctrl[:] to generate controlling
 - robotics and objects: new objects can be added in xmls/Baxter/baxtermaster.xml
 - discrete perturbation: 2D plane remapped to N uniformly discretized circular points
@@ -27,8 +27,7 @@ A number of examples available under examples folder:
 
 ## Results
 
-- Images captured using newly added camera [`test_kinmatics.py`]: examples/images
-- Inverse kinmatic control: examples/videos
+- 3-state visualization images are saved in training/logs/images/bonues-test6
 
 
 ## Development
