@@ -8,7 +8,8 @@
 ![jpg](2_1_resized.jpg)
 ![jpg](2_model_approx.jpg)
 
-![jpg](new_cube.xml_predict_2_1Lifted.jpg)[jpg](new_cube.xml_predict_2_2Perturbed.jpg)
+![jpg](new_cube.xml_predict_2_1Lifted.jpg){: width="100" height="100"}
+![jpg](new_cube.xml_predict_2_2Perturbed.jpg){: width="100" height="100"}
 
 This project is based on [self-brewed-mujoco-py](https://github.com/davidsonic/self_brewed_mujoco_py) maintained by Seung Hee Yoon, with the following new features added:
 
