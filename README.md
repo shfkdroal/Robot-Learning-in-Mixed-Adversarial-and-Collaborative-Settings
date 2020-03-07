@@ -1,10 +1,10 @@
 # Robot Learning in Mixed Settings IROS
 
 <div>
-<img src="new_cube.xml_predict_9_1Lifted.jpg" width="22%">
-<img src="new_cube.xml_predict_9_2Perturbed.jpg" width="22%">
-  <img src="new_cube.xml_predict_15_1Lifted.jpg" width="22%">
-<img src="new_cube.xml_predict_15_2Perturbed.jpg" width="22%">
+<img src="new_cube.xml_predict_9_1Lifted.jpg" width="24%">
+<img src="new_cube.xml_predict_9_2Perturbed.jpg" width="24%">
+  <img src="new_cube.xml_predict_15_1Lifted.jpg" width="24%">
+<img src="new_cube.xml_predict_15_2Perturbed.jpg" width="24%">
 </div>
   
 This project is based on [public grasp IROS](https://github.com/davidsonic/grasp_public) and maintained by Seung Hee Yoon, with the following new features added:
