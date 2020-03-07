@@ -1,16 +1,17 @@
-# Robot Learning in Mixed Adversarial and Collaborative Settings IROS
+# Robot Learning in Mixed Settings IROS
 
 <div>
-<img src="new_cube.xml_predict_9_1Lifted.jpg" width="20%">
-<img src="new_cube.xml_predict_9_2Perturbed.jpg" width="20%">
-  <img src="new_cube.xml_predict_15_1Lifted.jpg" width="20%">
-<img src="new_cube.xml_predict_15_2Perturbed.jpg" width="20%">
+<img src="new_cube.xml_predict_9_1Lifted.jpg" width="22%">
+<img src="new_cube.xml_predict_9_2Perturbed.jpg" width="22%">
+  <img src="new_cube.xml_predict_15_1Lifted.jpg" width="22%">
+<img src="new_cube.xml_predict_15_2Perturbed.jpg" width="22%">
 </div>
   
-This project is based on [self-brewed-mujoco-py](https://github.com/davidsonic/self_brewed_mujoco_py) maintained by Seung Hee Yoon, with the following new features added:
+This project is based on [public grasp IROS](https://github.com/davidsonic/grasp_public) and maintained by Seung Hee Yoon, with the following new features added:
 
-1. **Continuous perturbation remapped to discrete circular directions**
-2. **New robotic assets included**
+1. **Gneralized force classifier based on the top camera images**
+2. **Robot learning framework with the classifier**
+2. **Functionality to Capture the ground truth of robustness and sampled robustness**
 
 
 
@@ -30,10 +31,6 @@ A number of examples available under examples folder:
 - Inverse kinmatic control: examples/videos
 
 
-## To-do list
-1. Refine adversary
-
-
 ## Development
 
 Install grasp environment and self-brewed-mujoco-py:
@@ -51,24 +48,11 @@ python training/train_init_ik.py
 
 ## Changelog
 
-- 01/12/2019: Fix force rendering, discretize continuous perturbation, integrate inverse kinmatic control
-- 01/17/2019: Fix path planning and grasping bugs, perturb object selected by default. Detector API included.
-- 02/01/2019: Before training, environment ready
-- 02/05/2019: Training pipeline success
-- 02/06/2019: Fix bugs of adv_error, ready to verfy adv policy
-- 02/09/2019: Adv verified; User-interface OK;
-- 02/10/2019: Update grasping policy, loss in tensorboard
-- 02/12/2019: Training protagonist policy complete
-- 02/14/2019: Stable version
-- 02/16/2019: adv_loss modified
-- 02/17/2019: round-nut configuration changed, extract all params outside, 02-17
-- 02/18/2019: Logging/plotting feature added, object params fixed
-- 02/18/2019: Freeze feature extraction layers of protagonist policy, store all models
+- 03/07/2019: Uploaded the public source code.
 
 ## Credits
 
 `Grasping IROS` is maintained by the ICAROS team. Contributors include:
 
-- Jiali Duan
-- Qian Wang
+- Seug Hee Yoon
 - Stefanos Nikolaidis
