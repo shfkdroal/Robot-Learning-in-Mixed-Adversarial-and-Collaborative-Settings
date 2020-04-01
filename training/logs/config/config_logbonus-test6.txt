@@ -1,5 +1,5 @@
 User name: Jiali
-Begin time: 2020-02-20 04:40:19
+Begin time: 2020-04-01 18:53:28
 
 
 Config params: 
@@ -12,7 +12,7 @@ use_pro_name: bonus-train-18
 to_train: False
 adv_init: False
 is_human: True
-train_pro: False
+train_pro: True
 random_perturb: False
 object_xml: all.xml
 user_name: Jiali

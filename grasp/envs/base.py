@@ -266,6 +266,7 @@ class MujocoEnv(metaclass = EnvMeta):
         self.save_R_table_purterbed = False
         self.save_R_table_Up = False
         self.thold_start_using_filter = 25 # 25
+        self.force_type_inst = False
 
         # the first means no force is applied
         # object to use
@@ -562,12 +563,12 @@ class MujocoEnv(metaclass = EnvMeta):
 
         #max point
         if self.default_filtering:
-            (center_pt, R, grasp_angle, patch_Is_resized, fc8_prediction, self.fc8_norms, R_spec, R_table_update_info) = \
+            (center_pt, R, grasp_angle, patch_Is_resized, fc8_prediction, self.fc8_norms, R_spec) = \
                 predict_from_img(None, self.post_reward, self.num_samples, self.training_R_table_ground_truth,
                                  image_path_completion('crop.jpg'), object_xml, self.G, self.total_steps,
                                  self.log_name, is_train=self.train_pro, opt=0, was_valid=self.is_valid_sample)
         else:
-            (center_pt, R, grasp_angle, patch_Is_resized, fc8_prediction, self.fc8_norms, R_spec, R_table_update_info) = \
+            (center_pt, R, grasp_angle, patch_Is_resized, fc8_prediction, self.fc8_norms, R_spec) = \
                 predict_from_img(None, self.post_reward, self.num_samples, self.training_R_table_ground_truth,
                                  image_path_completion('crop.jpg'), object_xml, self.G_filter, self.total_steps,
                                  self.log_name, is_train=self.train_pro, opt=0)
@@ -581,21 +582,6 @@ class MujocoEnv(metaclass = EnvMeta):
 
         if self.training_R_table_ground_truth:
             center_pt = self.current_fixed_center()
-        else:
-            for looper in range(self.num_samples_spot):
-                r_raw = (R_table_update_info[0][looper])[0]
-                r = 1 / (1 + np.exp(-r_raw))
-                a = (R_table_update_info[0][looper])[1]
-
-                if R_table_update_info[2][looper] - self.min_coord >= 285:
-                    R_table_update_info[2][looper] = 284 + self.min_coord
-                if R_table_update_info[1][looper] - self.min_coord >= 285:
-                    R_table_update_info[1][looper] = 284 + self.min_coord
-
-                self.R_table[R_table_update_info[2][looper] - self.min_coord,
-                             R_table_update_info[1][looper] - self.min_coord] = (r, a)
-            self.R_table_update_info = R_table_update_info
-
 
 
         self.center_pt = center_pt
@@ -1122,7 +1108,7 @@ class MujocoEnv(metaclass = EnvMeta):
         sim = MjSim(model)
         # random initialize model as the same as master1.xml
         viewer = MjViewer(sim)
-
+        viewer._force_type_inst = self.force_type_inst
         
 
         viewer._run_speed = self.speed
@@ -1361,6 +1347,7 @@ class MujocoEnv(metaclass = EnvMeta):
         if lift_success==False:
             post_reward =pre_reward
         else:
+            self.force_type_inst = not self.force_type_inst
             if adv_error == 0:
                 if self.is_human: 
                     self.adv_prob = 1

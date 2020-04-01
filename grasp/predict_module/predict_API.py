@@ -559,7 +559,7 @@ def predict_from_img(gripper_coords, post_reward, num_samples, training_gt, imag
         if opt == 1:
             return (patch_Is_resized, pred, R_table_spec, R_table_update_info)
         else: # opt == 0
-            return (center_pt, R, angle, patch_Is_resized, pred, fc8_values, R_table_spec, R_table_update_info)
+            return (center_pt, R, angle, patch_Is_resized, pred, fc8_values, R_table_spec)
 
         # modified by Yoon
     else:
@@ -569,6 +569,7 @@ def predict_from_img(gripper_coords, post_reward, num_samples, training_gt, imag
         R_table_update_info.append(P.r_angle_table_patches)
         R_table_update_info.append(P.patch_hs)
         R_table_update_info.append(P.patch_ws)
+
 
         del P
 

@@ -146,9 +146,9 @@ class MjViewer(MjViewerBasic):
         self._video_idx = 0
         self._video_path = "/tmp/video_%07d.mp4"
 
-        
-        # Added on 4.29
+
         self.key_pressed = None
+        self._force_type_inst = False
 
 
         # vars for capturing screen
@@ -169,6 +169,7 @@ class MjViewer(MjViewerBasic):
         self._hide_overlay = False  # hide the entire overlay.
         self._user_overlay = {}
 
+
     def render(self):
         """
         Render the current simulation state to the screen or off-screen buffer.
@@ -179,10 +180,13 @@ class MjViewer(MjViewerBasic):
             render_start = time.time()
 
             self._overlay.clear()
+            """
             if not self._hide_overlay:
                 for k, v in self._user_overlay.items():
                     self._overlay[k] = copy.deepcopy(v)
                 self._create_full_overlay()
+            """
+            self._show_instruction()
             super().render()
             if self._record_video:
                 frame = self._read_pixels_as_in_window()
@@ -251,6 +255,11 @@ class MjViewer(MjViewerBasic):
         rec_assign(offscreen_ctx.cam, saved[2])
 
         return img
+
+    def _show_instruction(self):
+        self.add_overlay(
+            const.GRID_TOPLEFT, "Apply the force that is,", "Adverserial" if self._force_type_inst else "Collaborative")
+        return
 
     def _create_full_overlay(self):
         if self._render_every_frame:
